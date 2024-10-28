@@ -66,43 +66,40 @@
 <body>
     <h1>Will Be Redirected Soon <span id="countdown">5</span> seconds...</h1>
 
-    <script>
-        
-        const urls = [
-      'https://difficultywithhold.com/hb1f3zvj1t?key=7be3ff01bf21bc02538a606fa6d2f53e',
-      'https://difficultywithhold.com/gimxub7zzn?key=3477524e03c2d6f23f1b335092ac4e1e',
-      'https://difficultywithhold.com/s0ahji1x?key=54cd8240c7c38709946cea75a0a06175',
-      'https://difficultywithhold.com/egjhks6v4v?key=00a2b75cdf03b92ca40186f1bb8648eb',
-      'https://difficultywithhold.com/vyi206c42b?key=7c450737fd664c6c015025585d146392'
-        ];
+<script>
+    const encodedUrls = [
+'aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw/cT1odHRwcyUzQSUyRiUyRmJsb2cudHZtYWxheXNpYS5ob21lcyUyRmRpcmVjdDMuaHRtbCZzYT1EJnNudHo9MSZ1c2c9QU92VmF3Mm9IVTdlODFmSEZ1Tlpwb19jMmRxTQ==',
+'aHR0cHM6Ly9kaWZmaWN1bHR5d2l0aGhvbGQuY29tL2dpbXh1Yjd6em4/a2V5PTM0Nzc1MjRlMDNjMmQ2ZjIzZjFiMzM1MDkyYWM0ZTFl',
+'aHR0cHM6Ly9kaWZmaWN1bHR5d2l0aGhvbGQuY29tL3MwYWhqaTF4P2tleT01NGNkODI0MGM3YzM4NzA5OTQ2Y2VhNzVhMGEwNjE3NQ==',
+'aHR0cHM6Ly9kaWZmaWN1bHR5d2l0aGhvbGQuY29tL2VnamhrczZ2NHY/a2V5PTAwYTJiNzVjZGYwM2I5MmNhNDAxODZmMWJiODY0OGVi',
+'aHR0cHM6Ly9kaWZmaWN1bHR5d2l0aGhvbGQuY29tL2hiMWYzenZqMXQ/a2V5PTdiZTNmZjAxYmYyMWJjMDI1MzhhNjA2ZmE2ZDJmNTNl'
+    ];
 
-        
-        function redirectRandom() {
-            const randomIndex = Math.floor(Math.random() * urls.length);
-            const randomUrl = urls[randomIndex];
+    function redirectRandom() {
+        const randomIndex = Math.floor(Math.random() * encodedUrls.length);
+        const randomEncodedUrl = encodedUrls[randomIndex];
+        const randomUrl = atob(randomEncodedUrl); // Decode the URL
 
-            
-            let countdown = 5;
-            const countdownDisplay = document.getElementById('countdown');
+        let countdown = 5;
+        const countdownDisplay = document.getElementById('countdown');
 
-            const countdownInterval = setInterval(function() {
-                countdownDisplay.textContent = countdown;
-                
-                if (countdown <= 3) {
-                    countdownDisplay.classList.add('alert');  
-                }
+        const countdownInterval = setInterval(function() {
+            countdownDisplay.textContent = countdown;
 
-                countdown--;
-                if (countdown < 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = randomUrl;  
-                }
-            }, 200);  
-        }
+            if (countdown <= 3) {
+                countdownDisplay.classList.add('alert');  
+            }
 
-        
-        window.onload = redirectRandom;
-    </script>
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(countdownInterval);
+                window.location.href = randomUrl;  
+            }
+        }, 1000);  // Mengubah interval menjadi 1000 ms (1 detik)
+    }
+
+    window.onload = redirectRandom;
+</script>
     <script type='text/javascript'>var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4877287,4,4,0,0,0,00010000']);
 _Hasync.push(['Histats.fasi', '1']);
